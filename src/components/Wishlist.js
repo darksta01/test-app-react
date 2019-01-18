@@ -12,7 +12,8 @@ const mapStateToProps = state => {
     return {
         wishlist,
         isWishlist: true,
-        sum: wishlist.wishes.length > 0 ? wishlist.wishes.map((item) => item.price).reduce((state, nextVal) => state + nextVal) : 0,
+        // , 0 : pour gerer 1er appel avec undefined
+        sum: wishlist.wishes.map((item) => item.price).reduce((state, nextVal) => state + nextVal, 0),
     }
 };
 
